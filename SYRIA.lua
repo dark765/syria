@@ -5625,28 +5625,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الحاتات' and Mod(msg) then
+if text == 'تنزيل الخولات' and Mod(msg) then
 database:del(bot_id..'Mode:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ♡ تم مسح جميع المطايه')
+send(msg.chat_id_, msg.id_, ' ♡ تم مسح جميع الخولات')
 end
-if text == ("تاك للحاتات") and Mod(msg) then
+if text == ("تاك للخولات") and Mod(msg) then
 local list = database:smembers(bot_id..'Mode:User'..msg.chat_id_)
-t = "\n ♡ قائمه حاتات المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
+t = "\n ♡ قائمه خولات المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الحاته [@"..username.."]\n"
+t = t..""..k.."» الخول [@"..username.."]\n"
 else
-t = t..""..k.."» الحاته `"..v.."`\n"
+t = t..""..k.."» الخول `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = " ♡ مع الاسف لا يوجد حاته"
+t = " ♡ مع الاسف لا يوجد خول"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع الحاته") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع خول") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5664,7 +5664,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Mode:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DEVBESSO')..')'
-local  statuss  = '\n ♡ تم رفع العضــو الحاته في المجموعه \n ♡ تعال يحاته ممكن نتعرف'
+local  statuss  = '\n ♡ تم رفع العضــو الخول في المجموعه \n ♡ تعال يخول ممكن نتعرف'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -5672,7 +5672,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل الحاته")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل خول")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5686,7 +5686,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Mode:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل العضــو الحاته من المجموعه\n ♡ مشيي مو خوش حاتهه'
+status  = '\n ♡ تم تنزيل العضــو الخول من المجموعه\n ♡ امشي يكسمك انت خول برضو'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5695,24 +5695,24 @@ return false
 end
 -----------------------------------------------------
 
-if text == ("تاك للحات") and Mod(msg) then
+if text == ("تاك للمعرصين") and Mod(msg) then
 local list = database:smembers(bot_id..'Modde:User'..msg.chat_id_)
-t = "\n ♡ قائمه حات المجموعه \nٴ≪━━━━━━SYRIA━━━━━━≫ٴ\n"
+t = "\n ♡ قائمه معرصين المجموعه \nٴ≪━━━━━━SYRIA━━━━━━≫ٴ\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الحات [@"..username.."]\n"
+t = t..""..k.."» العرص [@"..username.."]\n"
 else
-t = t..""..k.."» الحات `"..v.."`\n"
+t = t..""..k.."» العرص `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = " ♡ مع الاسف لا يوجد حات"
+t = " ♡ مع الاسف لا يوجد عرص"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع الحات") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع عرص") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5730,7 +5730,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Modde:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DEVBESSO')..')'
-local  statuss  = '\n ♡ تم رفع العضــو الحات في المجموعه \n ♡ تعال حبي الحات نطيني بوسه'
+local  statuss  = '\n ♡ تم رفع العضــو عرص في المجموعه \n ♡ بطل تعريص بق يكسمك'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -5738,7 +5738,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل الحات")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل عرص")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5752,7 +5752,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Modde:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضــو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل العضــو الحات من المجموعه\n ♡ مشيي مو خوش حات'
+status  = '\n ♡ تم تنزيل العضــو عرص من المجموعه\n ♡ يلا بيي يعرص'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5760,28 +5760,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الصخوله' and Mod(msg) then
+if text == 'تنزيل الشراميط' and Mod(msg) then
 database:del(bot_id..'Sakl:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع صخوله من المجموعه')
+send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع الشراميط من المجموعه')
 end
-if text == ("تاك للصخوله") and Mod(msg) then
+if text == ("تاك للشراميط") and Mod(msg) then
 local list = database:smembers(bot_id..'Sakl:User'..msg.chat_id_)
-t = "\n ♡ قائمة صخوله المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
+t = "\n ♡ قائمة شراميط المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الصخل [@"..username.."]\n"
+t = t..""..k.."» الشرموط [@"..username.."]\n"
 else
-t = t..""..k.."» الصخل `"..v.."`\n"
+t = t..""..k.."» الشرموط `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = " ♡ لا يوجد صخل"
+t = " ♡ لا يوجد شرموط"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع صخل") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع شرموط") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5799,7 +5799,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Sakl:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-local  statuss  = '\n ♡ تم رفع المتهم صخل بالمجموعه\n ♡ الان اصبح صخل المجموعه'
+local  statuss  = '\n ♡ تم رفع العضو شرموط بالمجموعه\n ♡ الان اصبح شرموط المجموعه'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -5808,7 +5808,7 @@ return false
 end
 
 
-if (text == ("تنزيل صخل")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل شرموط")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5822,7 +5822,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Sakl:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل العضو صخل\n ♡ ارجع للبيتكم حبي'
+status  = '\n ♡ تم تنزيل العضو شرموط\n ♡ شرمطه تايم.'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5830,19 +5830,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الجلاب' and Mod(msg) then
+if text == 'تنزيل الوتكات' and Mod(msg) then
 database:del(bot_id..'Motte:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع جلاب المجموعه')
+send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع وتكات المجموعه')
 end
-if text == ("تاك للجلاب") and Mod(msg) then
+if text == ("تاك للوتكات") and Mod(msg) then
 local list = database:smembers(bot_id..'Motte:User'..msg.chat_id_)
-t = "\n ♡ قائمة الجلاب المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
+t = "\n ♡ قائمة وتكات المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الجلب [@"..username.."]\n"
+t = t..""..k.."» الوتكه [@"..username.."]\n"
 else
-t = t..""..k.."» الجلب `"..v.."`\n"
+t = t..""..k.."» الوتكه `"..v.."`\n"
 end
 end
 if #list == 0 then
@@ -5851,7 +5851,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع جلب") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع وتكه") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5869,7 +5869,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Motte:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-local  statuss  = '\n ♡ تم رفع جلب في المجموعه\n ♡ تعال حبي اطيك عضمه'
+local  statuss  = '\n ♡ تم رفع وتكه في المجموعه\n ♡ مش وتكه دي وتكتين '
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -5877,7 +5877,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل جلب")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل وتكه")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5891,7 +5891,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Motte:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل جلب في المجموعه\n ♡ حبي رجع عضمه'
+status  = '\n ♡ تم تنزيل وتكه في المجموعه\n ♡ بقت وتكه واحده'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5899,28 +5899,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل القروده' and Mod(msg) then
+if text == 'تنزيل المنايك' and Mod(msg) then
 database:del(bot_id..'Motee:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع القروده بالمجموعه')
+send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع المنايك بالمجموعه')
 end
-if text == ("تاك للقروده") and Mod(msg) then
+if text == ("تاك للمنايك") and Mod(msg) then
 local list = database:smembers(bot_id..'Motee:User'..msg.chat_id_)
-t = "\n ♡ قائمة القروده المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
+t = "\n ♡ قائمة منايك المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» القرد [@"..username.."]\n"
+t = t..""..k.."» المتناك [@"..username.."]\n"
 else
-t = t..""..k.."» القرد `"..v.."`\n"
+t = t..""..k.."» المتناك `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = " ♡ لا يوجد قرد"
+t = " ♡ لا يوجد منايك"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع قرد") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع متناك") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5938,7 +5938,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-local  statuss  = '\n ♡ تم رفع قرد في المجموعه\n ♡ تعال حبي استلم موزه'
+local  statuss  = '\n ♡ تم رفع متناك في المجموعه\n ♡ تعال انيكك يلا'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -5946,7 +5946,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل قرد")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل متناك")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5960,7 +5960,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل قرد من المجموعه\n ♡ رجع موزه حبي'
+status  = '\n ♡ تم تنزيل متناك من المجموعه\n ♡ رجعت شرفك؟'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5968,28 +5968,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الحصونه' and Mod(msg) then
+if text == 'تنزيل الزواني' and Mod(msg) then
 database:del(bot_id..'Hors:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع الحصونه بالمجموعه')
+send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع الزواني بالمجموعه')
 end
-if text == ("تاك للحصونه") and Mod(msg) then
+if text == ("تاك للزواني") and Mod(msg) then
 local list = database:smembers(bot_id..'Hors:User'..msg.chat_id_)
-t = "\n ♡ قائمة الحصونه المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
+t = "\n ♡ قائمة للزواني المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الحصان [@"..username.."]\n"
+t = t..""..k.."» الزاني [@"..username.."]\n"
 else
-t = t..""..k.."» الحصان `"..v.."`\n"
+t = t..""..k.."» الزاني `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = " ♡ لا يوجد حصان"
+t = " ♡ لا يوجد زاني"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع حصان") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع زاني") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6007,7 +6007,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Hors:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-local  statuss  = '\n ♡ تم رفع حصان في المجموعه\n ♡ تعال حبي احطلك سرج وركبك فرني فره حلوه'
+local  statuss  = '\n ♡ تم رفع زاني في المجموعه\n ♡ امشي يلا يكسمك من هنا'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -6015,7 +6015,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل حصان")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل زاني")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6029,7 +6029,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Hors:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل حصان من المجموعه\n ♡ رجع السرج حبي'
+status  = '\n ♡ تم تنزيل زاني من المجموعه\n ♡ كسمك برضو²'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -6106,28 +6106,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الطليان' and Mod(msg) then
+if text == 'تنزيل الاكساس' and Mod(msg) then
 database:del(bot_id..'Tele:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع طليان بالمجموعه')
+send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع اكساس بالمجموعه')
 end
-if text == ("تاك للطليان") and Mod(msg) then
+if text == ("تاك للاكساس") and Mod(msg) then
 local list = database:smembers(bot_id..'Tele:User'..msg.chat_id_)
-t = "\n ♡ قائمة الطليان المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
+t = "\n ♡ قائمة اكساس المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الطلي[@"..username.."]\n"
+t = t..""..k.."» الكس [@"..username.."]\n"
 else
-t = t..""..k.."» الطلي "..v.."\n"
+t = t..""..k.."» الكس "..v.."\n"
 end
 end
 if #list == 0 then
-t = " ♡ لا يوجد طلي"
+t = " ♡ لا يوجد كس"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع طلي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع كس") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6145,7 +6145,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Tele:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-local  statuss  = '\n ♡ تم رفع الطلي في المجموعه\n ♡ طلع برا ابو البعرور الوصخ'
+local  statuss  = '\n ♡ تم رفع كس في المجموعه\n ♡ الان اصبح كسك'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -6153,7 +6153,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل طلي")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل كس")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6167,7 +6167,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Tele:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل الطلي من المجموعه\n ♡ هاك اخذ بعرور'
+status  = '\n ♡ تم تنزيل الكس من المجموعه\n ♡ مبقاش عندك كس خلاص'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -6244,28 +6244,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل جريذيه' and Mod(msg) then
+if text == 'تنزيل القامدين' and Mod(msg) then
 database:del(bot_id..'Jred:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع جريزي')
+send(msg.chat_id_, msg.id_, ' ♡ تم تنزيل جميع القامدين')
 end
-if text == ("تاك للجريذيه") and Mod(msg) then
+if text == ("تاك للقامدين") and Mod(msg) then
 local list = database:smembers(bot_id..'Jred:User'..msg.chat_id_)
-t = "\n ♡ قائمة الجريذيه المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
+t = "\n ♡ قائمة القامدين المجموعه \n≪━━━━━━SYRIA━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."» الجريذي [@"..username.."]\n"
+t = t..""..k.."» القامد [@"..username.."]\n"
 else
-t = t..""..k.."» الجريذي "..v.."\n"
+t = t..""..k.."» القامد "..v.."\n"
 end
 end
 if #list == 0 then
-t = " ♡ لا يوجد جريذي"
+t = " ♡ لا يوجد قامد بمت روم متناك"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع جريذي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع قامد") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6283,7 +6283,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-local  statuss  = '\n ♡ تم رفع جريذي في المجموعه\n ♡ خايس ريحتك موتتنه روح سبح يع'
+local  statuss  = '\n ♡ تم رفع القامد في المجموعه\n ♡ يواد يقامد'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -6291,7 +6291,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل جريذي")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل قامد")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6305,7 +6305,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ♡ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOURCE_SYRIA')..')'
-status  = '\n ♡ تم تنزيل جريذي من المجموعه\n ♡ هاك ليفه اسبح'
+status  = '\n ♡ تم تنزيل القامد من المجموعه\n ♡ نت بقيت عضو يلا امشي'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -10605,7 +10605,7 @@ end
 end
 if text == "مصه" or text == "بوسه" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"مووووووووواححح????","مابوس ولي😌😹","خدك/ج نضيف 😂","البوسه بالف حمبي 🌝💋","خلي يزحفلي وابوسه 🙊😻","كل شويه ابوسه كافي 😏","ماابوسه والله هذا زاحف🦎","محح هاي لحاته صاكه??"}
+local texting = {"مووووووووواححح????","مابوس ولي😌😹","خدك/ج نضيف 😂","البوسه بالف حمبي 🌝💋","خلي يزحفلي وابوسه 🙊😻","كل شويه ابوسه كافي 😏","ماابوسه والله هذا زاحف🦎","محح هاي لخول صاكه??"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
